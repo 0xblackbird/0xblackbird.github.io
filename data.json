@@ -1,9 +1,9 @@
 {
   "toolName1":"crack the hash",
   "toolName2":"enum.sh",
-  "latestBlogTitle":"Example Title",
-  "latestBlogDescription":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-  "latestBlogDate":"19/07/2020",
-  "latestBlogLink":"/blog/example",
+  "latestBlogTitle":"From copy&paste xss to full account takeover!",
+  "latestBlogDescription":"Discover about how I found a reflected 'copy&paste' cross site scripting in a WYSIWYG editor and leveraged it to full account takeover...as you may guessed it via CSRF!",
+  "latestBlogDate":"16/08/2020",
+  "latestBlogLink":"/blog/post0",
   "progressValue": 22
 }
