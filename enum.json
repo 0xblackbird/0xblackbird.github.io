@@ -2,5 +2,5 @@
 	"name":"enum.sh",
 	"description":"An enumeration script that combines several subdomain scanning tools! One big advantage of having this script is that you only need to run it once! This will help you from running multiple tools at the same time! This script also screenshots every website it finds (optional), this gives you a more clear view of your attack surface!",
 	"toolsUtilized":"Sublist3r, OWASP Amass, Assetfinder, Findomain, Subfinder, Crt.sh, Httprobe, Subjack and Aquatone",
-	"lastUpdated":"21/08/2020"
+	"lastUpdated":"21/08/2020, 16:08:20"
 }
