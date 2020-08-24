@@ -4,6 +4,5 @@
   "latestBlogTitle":"From copy&paste xss to full account takeover!",
   "latestBlogDescription":"Discover about how I found a reflected 'copy&paste' cross site scripting in a WYSIWYG editor and leveraged it to full account takeover...as you may guessed it via CSRF!",
   "latestBlogDate":"16/08/2020",
-  "latestBlogLink":"/blog/post0",
-  "progressValue": 22
+  "latestBlogLink":"/blog/post0"
 }
