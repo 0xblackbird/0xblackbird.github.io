@@ -2,7 +2,7 @@
   "toolName1":"crack the hash",
   "toolName2":"enum.sh",
   "latestBlogTitle":"How I got read access to sensitive data of users via Drupal Nodes!",
-  "latestBlogDescription":"This post is a special one! I never tought I would be able to read sensitive data while abusing the functionality of Drupal Nodes and reading some pretty sensitive information about other users!",
+  "latestBlogDescription":"Learn more about how I could read sensitive data from other users just by visiting Drupal Nodes directly!",
   "latestBlogDate":"14/09/2020",
   "latestBlogLink":"/blog/post1"
 }
