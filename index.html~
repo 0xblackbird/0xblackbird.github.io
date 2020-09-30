@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>be1807v | Github</title>
+		<base href="/">
+		<meta http-equiv="cache-control" content="max-age=0">		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<meta name="description" content="Welcome to my Github page!">
+		<meta name="robots" content="index,follow">
+  		<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  		<meta name="google-site-verification" content="4uJQ2JChkCaT1TfsLzSAW1yW0Dq9bw2cOBbMX_aqC-Q" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="be1807v.github.io" />
+		<meta name="twitter:creator" content="@BE1807V" />
+		<meta name="twitter:image" content="https://be1807v.github.io/assets/img/roofvogel.jpg">
+		<meta property="og:url" content="https://be1807v.github.io/" />
+		<meta property="og:title" content="be1807v | Github Page" />
+		<meta property="og:description" content="Come take a look at be1807v.github.io to read all about my findings or if you just want to discover tools that I've developed!" />
+		<meta property="og:image" content="https://be1807v.github.io/assets/img/roofvogel.jpg" />
+	<link rel="stylesheet" href="styles.6f6a411f12a0b1eabe96.css"></head>
+
+	<body class="mat-typography">
+		<noscript>
+			<style>
+				body {
+					margin: 0px;
+					background-color: #2a2a2a;
+				}
+
+				.noscript-p {
+					color: #fff;
+					font-family: sans-serif;
+					text-align: center;
+				}
+
+				.noscript-img {
+					margin-top: 10px; 
+					margin-left: auto; 
+					margin-right: auto; 
+					height: 95vh; 
+					width: 50%; 
+					display: block
+				}
+
+				@media (max-width: 650px) {
+					.noscript-img {
+						width: 100%;
+					}
+				}
+			</style>
+			<img src="./assets/img/noscript.jpg" class="noscript-img">
+			<p class="noscript-p">Please enable JavaScript to get the best experience!</p>
+		</noscript>
+  		<app-root></app-root>
+  		<script type="text/javascript" src="/assets/js/particles.js-master/particles.min.js"></script>
+		<script type="text/javascript">
+			particlesJS.load('particles-js', '/assets/js/particles.json');
+  		</script>
+  		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="runtime.acf0dec4155e77772545.js" defer></script><script src="polyfills.c3ca7eb135cdcfee9974.js" defer></script><script src="scripts.9fa6d21aea6b1eaa952a.js" defer></script><script src="main.d9662000c9bdf274f0ec.js" defer></script></body>
+</html>
