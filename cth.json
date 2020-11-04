@@ -2,5 +2,5 @@
 	"name":"crack the hash",
 	"description":"A powerfull hash cracker that is written in python3 which supports over 15 hashtypes! This number will be increased overtime! What makes this tool so special is that it is pretty fast! It's designed to find your hash in under 1 minute (while using a wordlist like rockyou.txt and depends on your hardware)! Examples can be found on the Github repository under 'Examples' section!",
 	"hashTypes":"MD2, MD4, MD5, SHA, SHA-224, SHA-256, SHA-384, SHA-512, SHA3-224, SHA3-256, SHA3-512, BLAKE2s256, BLAKE2b512, NTLM, Whirlpool, SM3, RIPEMD-160",
-	"version":"2.5"
+	"version":"2.5.2"
 }
