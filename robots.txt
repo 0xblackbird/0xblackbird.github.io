@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/*
 
-Sitemap: https://be1807v.github.io/sitemap.xml
+Sitemap: https://0xblackbird.github.io/sitemap.xml
