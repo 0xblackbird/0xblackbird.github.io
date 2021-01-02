@@ -24,6 +24,19 @@
 	<link rel="stylesheet" href="styles.eaf620317add953e5d8a.css"></head>
 
 	<body class="mat-typography">
+		<script>
+		    (function () {
+		    	// Retrieve the URL the user was trying to access when receiving the 404.
+		    	var redirect = sessionStorage.redirect;
+		    	// Remove the URL from sessionStorage.
+		    	delete sessionStorage.redirect;
+		    	// Check if we actually need to redirect.
+		    	if (redirect && redirect != location.href) {
+		    		// We need to redirect to the URL the user was trying to access.
+		    		history.replaceState(null, null, redirect);
+		    	};
+		    })();
+		</script>
 		<noscript>
 			<style>
 				body {
@@ -62,5 +75,5 @@
 				particlesJS.load('particles-js', '/assets/js/particles.json');
 			});
   		</script>
-	<script src="runtime-es2015.681bd8a4edb177c86959.js" type="module"></script><script src="runtime-es5.681bd8a4edb177c86959.js" nomodule="" defer=""></script><script src="polyfills-es5.f2625fc7539c118ed11e.js" nomodule="" defer=""></script><script src="polyfills-es2015.411ff8c1264a076bae63.js" type="module"></script><script src="scripts.a8a4ecdac47d0288cb8f.js" defer=""></script><script src="main-es2015.2a1c6f8ab114b660df87.js" type="module"></script><script src="main-es5.2a1c6f8ab114b660df87.js" nomodule="" defer=""></script></body>
+	<script src="runtime-es2015.681bd8a4edb177c86959.js" type="module"></script><script src="runtime-es5.681bd8a4edb177c86959.js" nomodule="" defer=""></script><script src="polyfills-es5.f2625fc7539c118ed11e.js" nomodule="" defer=""></script><script src="polyfills-es2015.411ff8c1264a076bae63.js" type="module"></script><script src="scripts.a8a4ecdac47d0288cb8f.js" defer=""></script><script src="main-es2015.1b737f6cf2547d5e98b3.js" type="module"></script><script src="main-es5.1b737f6cf2547d5e98b3.js" nomodule="" defer=""></script></body>
 </html>
