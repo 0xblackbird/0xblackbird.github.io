@@ -1,0 +1,108 @@
+{
+    "appComponent": {
+        "navigationBar": {
+            "home": "home",
+            "tools": "tools",
+            "blog": "blog",
+            "about": "about",
+            "msg" : {
+                "msg": "At the moment, only some parts are translated in Dutch. However, the website is still fully available in English!",
+                "action": "Close"
+            }
+        }
+    },
+    "homeComponent": {
+        "carousel": {
+            "caption0": "0xblackbird - Bug bounty blog posts.",
+            "button0": "Visit the blog!",
+            "caption1": "Experience the <span class=\"intro-text-mark\">power</span> of cracking hashes using <span class=\"intro-text-mark\">Python3!</span>",
+            "button1": "Check it out!",
+            "caption2": "The tool that combines all the subdomain enumeration tools! <br>This makes your <strong class=\"intro-text-mark\">reconnaissance</strong> on subdomains much <strong class=\"intro-text-mark\">easier.</strong>",
+            "button2": "Check it out!"
+        },
+        "latestPost": {
+            "latestPost": "Latest blog post",
+            "readMore": "Read more...",
+            "visitBlog": "Visit the blog"
+        },
+        "featuredTool": {
+            "featuredTool": "Featured Tool",
+            "description": "A powerfull hash cracker that is written in python3 which supports 10+ hashtypes!",
+            "learnMore": "Learn more...",
+            "discoverMore": "Discover more tools"
+        },
+        "whoami": {
+            "whoami": "whoami",
+            "execute": "Execute"
+        }
+    },
+    "blogComponent": {
+        "post0": {
+            "intro": "Hello, h4ck3rs and security researchers! Welcome to my first post! First of all, before I start explaining how I found it, you should have a basic understanding of the topic. There is one post I mostly recommend and that is \"<a href=\"https://research.securitum.com/the-curious-case-of-copy-paste/\" target=\"_BLANK\" style=\"color: #1975c5; text-decoration: none;\">The curious case of copy paste</a>\", this post is from <a href=\"https://twitter.com/SecurityMB\" target=\"_BLANK\" style=\"color: #1975c5; text-decoration: none;\">Michał Bentkowski</a>! An amazing guy, this man helped me a lot! Please if you haven't followed him yet, then go follow him! He also made a playground for copy&paste cross-site scripting which can be found <a href=\"https://cdn.sekurak.pl/copy-paste/playground.html\" target=\"_BLANK\" style=\"color: #1975c5; text-decoration: none;\">here</a>, you'll see in just a second how helpful this actually is!",
+            "body": {
+                "target": {
+                    "target": "The target",
+                    "paragraph": "Now about the target! The company wants to stay anonymous so I will just call it example.com if I have to mention the domain name. As some people know, I only hunt on places where it's less crowded, this time the company had its own responsible disclosure. It has every domain in scope and I don't think that there were any other researchers hunting on that web app. Basically: the perfect target to find vulnerabilities on it!<br> As always, I started my enumeration process but I couldn't find anything valuable from that, so I decided to start attacking the web app right away. I already knew all the functionality and features that the web application provides since I was familiar and used their service for years. Since users could send messages and share files with each other, I started to look for those basic file upload vulnerabilities. But with no luck, after that, I came across <a href=\"https://research.securitum.com/the-curious-case-of-copy-paste/\" target=\"_BLANK\" style=\"color: #1975c5; text-decoration: none;\">Michał Bentkowski's post</a> and read it completely. This made me start looking for copy&paste cross-site scripting. I started with a basic <span matTooltip=\"<h1>Hello World!</h1>\">heading tag</span> (just to check for HTML injection), copied it to my clipboard, went to the WYSIWYG editor and pasted it. And I got HTML injected successfully. Unfortunately, I looked if there was any way to get stored XSS but it had to deal with 2 different filters (one on the client-side, another one on the server-side) this was a bit too hard for me so I left it there and tried to leverage the HTML injection to XSS, I tried a lot of payloads, and unfortunately none of them worked. Until I decided to look at what version of TinyMCE was installed and eventually find a zero-day payload for it. I found out that it was version 4.8.3 and got a zero-day payload from Michał Bentkowski! That payload of coarse worked! I was so happy at that moment. But now, if you look back at the vulnerability, a lot of you will say it's a self-XSS. So I had to leverage this in some way. I decided to try a full account takeover via CSRF."
+                },
+                "attackScenario": {
+                    "attackScenario": "Attack Scenario",
+                    "paragraph": "The attack scenario was as follows:",
+                    "steps": {
+                        "step0": "<span class=\"remove-s\">0. </span>Victim visits attackers website",
+                        "step1": "<span class=\"remove-s\">1. </span>Victim copies the malicious payload <b> as HTML</b>",
+                        "step2": "<span class=\"remove-s\">2. </span>Victim gets (redirected) back to the previous page and pastes in the payload in an <b matTooltip=\"In this case it was TinyMCE\"> WYSIWYG editor</b>",
+                        "step3": "<span class=\"remove-s\">3. </span>JavaScript gets executed in the background --&gt; victim's email-adress gets changed to the attacker's supplied email-adress",
+                        "step4": "<span class=\"remove-s\">4. </span>Attacker requests and sets a new password --&gt; Account takeover"
+                    }
+                },
+                "steps": {
+                    "step0": {
+                        "paragraph": "<b>Step 0: </b> This step will be an easy one since the web app already provides a mailing system, I can just send it to my victim."
+                    },
+                    "step1": {
+                        "paragraph": "<b>Step 1: </b> I started to create an HTML page that copies the payload to the victim's clipboard. The only problem here is that browsers try to block functions that copy something to the clipboard directly without user interaction, functions that get executed when the <span matTooltip=\"onload, onfocus, onerror, ...\">event handlers</span> trigger.",
+                        "toolTip": "This is the warning that gets displayed in the console on Firefox when you try to copy something to someones clipboard",
+                        "paragraph1": "So one way to deal with this is to make the user click something. For example, display a long text that he needs to copy and display a button that does that for him.",
+                        "mutedText": "I guess, people would rather click on 1 button then select the whole text to hit Ctrl+C",
+                        "paragraph2": "Heading one tag's are copied to my clipboard, and here is why I like the playground so much:",
+                        "mutedText1": "As I told you before, the playground is amazing!!!",
+                        "alert": {
+                            "tryIt": "Try it!",
+                            "click": "Click",
+                            "paragraph": " to copy the html tags and head over to the <a href=\"https://cdn.sekurak.pl/copy-paste/playground.html\" target=\"_BLANK\" class=\"alert-link\">playground</a>. After that just hit <kbd>Ctrl+V</kbd> and the html will get rendered!",
+                            "msg": "HTML-tags copied successfully to your clipboard!",
+                            "action": "Close"
+                        }
+                    },
+                    "step2": {
+                        "paragraph": "<b>Step 2: </b> This one was easy, if you look closely, I commented out that part that redirects the user after 10 seconds to the previous page."
+                    },
+                    "step3": {
+                        "paragraph": "<b>Step 3: </b> The most important part, crafting the request, bypassing the CSRF protection, and changing the victim's email-address! I tried to bypass the CSRF token, but that didn't work out, they did a good job on making sure the token gets verified correctly! But that doesn't make it impossible to get the token since we already have a reflected XSS, we can just send 2 requests instead of 1. The way I worked around this is: the first requests were responsible for the token, the second one was to change the email-address. Thank you <a href=\"https://twitter.com/hakluke\" target=\"_BLANK\">@hakluke</a> for making <a href=\"https://github.com/hakluke/weaponised-XSS-payloads\" target=\"_\">this</a> repository available for everyone!",
+                        "paragraph1": "Here is our first request which will grep out our CSRF token since it gets reflected in the source code of the web app.",
+                        "toolTip": "If you want to understand how this regex works, regexr.com and regex101.com are great websites which explains everything",
+                        "paragraph2": "Our second request is going to make the <kbd>POST</kbd> request to the webserver. Some headers were required so I had to include those in the request.",
+                        "paragraph3": "To sum up, we have now crafted 2 different requests, 1 was to get the token, the other one is to change our victim's email address. I appended the two pieces of JavaScript and minified it (to keep it simple). And this was the end proof of concept script: ",
+                        "paragraph4": "I executed the proof of concept script, went back to my profile...and to my surprise: my email address was changed!!! I was so happy at that moment, this was also my first time I leveraged a cross-site scripting vulnerability to CSRF. Shortly after that, I found a stored cross-site scripting on my profile, all I had to do was escaping the place where the value got reflected and add an event handler: <br><kbd>&quot;&lt;--&gt; autofocus onfocus=&quot;confirm(1)&quot;</kbd>. <br>This added more impact to the initial vulnerability I found, to deliver my victim a stored cross-site scripting I only had to add 1 extra parameter to the second request! Whenever the victim visits his/her profile, JavaScript will execute in the background."
+                    },
+                    "step4": {
+                        "paragraph": "<b>Step 4: </b> The final step was to reset our victim's password, the attacker only needed to provide a username and an email address. Once he/she provides that, a token will be sent to the attacker's supplied email address. From there he can just set a new password."
+                    }
+                },
+                "end": "This was it! I reported the vulnerability to the company, they replied to me and fixed it as soon as possible! I hope that you enjoyed this and learned something from it! If you want you can share this post! Thank you for reading and I hope I'll see you in the next one!",
+                "share": "Share this post:"
+            }
+        }
+    },
+    "aboutComponent": {
+        "toolTip": "SR-71 \"Blackbird\" (best plane ever!!)",
+        "bio": "Hello! I am a 16 years old security researcher/bug bounty hunter and developer from Belgium. I mainly hunt on Intigriti, YesWeHack (sometimes ZeroCopter, HackerOne, and BugCrowd). I also like to spend time on companies that have a responsible disclosure. I almost have 2 years of experience in securing web applications. Besides hacking web applications, I also try to build stuff. I can code in Python3, Bash, a bit of JavaScript/TypeScript, and some C++! Before I got into infosec, I was an animator and a game developer.<br>My main goal is to have bug bounties help finance my flight school training later on 😄!<br>If you have any questions, you can always reach me via Twitter or email!<br>Are you a program owner and do you want me to look for bugs on your web application? Please contact me and feel free to encrypt your message using the Public PGP key! Thank you!",
+        "contact": "contact",
+        "profiles": "profiles",
+        "pgpKey": "Public PGP Key",
+        "hallOfFame": "Hall of Fame"
+    },
+    "msgBox.close": {
+        "close": "Close"
+    }
+}
