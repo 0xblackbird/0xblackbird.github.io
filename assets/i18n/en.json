@@ -102,7 +102,7 @@
         "pgpKey": "Public PGP Key",
         "hallOfFame": "Hall of Fame"
     },
-    "msgBox.close": {
+    "msgBox": {
         "close": "Close"
     }
 }
