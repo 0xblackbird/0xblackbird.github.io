@@ -1,0 +1,99 @@
+<div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="7000">
+	<ol class="carousel-indicators">
+		<li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselIndicators" data-slide-to="2"></li>
+	</ol>
+		<div class="carousel-inner" role="listbox" style="background-color: #2a2a2e;">
+			<div id="particles-js">
+				<div class="carousel-item active">
+					<div class="carousel-caption">
+						<h2>{{ 'homeComponent.carousel.caption0' | translate }}</h2>
+						<a class="btn btn-outline-light btn-lg" routerLink="/blog">{{ 'homeComponent.carousel.button0' | translate }}</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="carousel-caption">
+						<h2>{{ toolName | titlecase }}</h2>
+						<p>Experience the <span class="intro-text-mark">power</span> of cracking hashes using <span class="intro-text-mark">Python3!</span></p>
+						<a class="btn btn-outline-light btn-lg" routerLink="/tools/cth">{{ 'homeComponent.carousel.button1' | translate }}</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="carousel-caption">
+						<h2>{{ toolName1 | titlecase }}</h2>
+						<p class="select-black">The tool that combines all the subdomain enumeration tools! <br>This makes your <strong class="intro-text-mark">reconnaissance</strong> on subdomains much <strong class="intro-text-mark">easier.</strong></p>
+						<a class="btn btn-outline-light btn-lg" routerLink="/tools/enum">{{ 'homeComponent.carousel.button2' | translate }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	</a>
+	<a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+	</a>			
+</div>
+
+<div class="jumbotron"></div>
+<div class="container-fluid">
+	<div class="col-12 text-center">
+		<h3 class="heading">{{ 'homeComponent.latestPost.latestPost' | translate }}</h3>
+		<div class="heading-underline"></div>
+	</div>
+	<div class="row mx-auto text-center">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header text-left">
+					{{ latestBlogDate }}
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">{{ latestBlogTitle }} <span class="badge badge-danger" style="margin-bottom: 0px;" >{{ latestBlogStatus }}</span></h5>
+			    	<p class="card-text">{{ latestBlogDescription }}</p>
+			    	<button routerLink="{{ latestBlogLink }}" mat-raised-button color="primary">{{ 'homeComponent.latestPost.readMore' | translate }}</button>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12 text-center">
+		<button class="btn-lg" routerLink="/blog" color="warn" mat-raised-button>{{ 'homeComponent.latestPost.visitBlog' | translate }}</button>
+	</div>
+</div>
+<div class="jumbotron"></div>
+<div class="container-fluid">
+	<div class="col-12 text-center">
+		<h3 class="heading">{{ 'homeComponent.featuredTool.featuredTool' | translate }}</h3>
+		<div class="heading-underline"></div>
+	</div>
+</div>
+<div class="container-2 mx-auto">
+  	<div class="row justify-content-center">
+    	<div class="col-md-4 text-center">
+    		<h4 class="heading">{{ toolName }} <span class="badge badge-success">{{ tool0Status }}</span></h4>
+    		<p>{{ 'homeComponent.featuredTool.description' | translate }}</p>
+    		<button routerLink="/tools/cth" color="primary" mat-raised-button>{{ 'homeComponent.featuredTool.learnMore' | translate }}</button>
+	   	</div>
+    	<div class="col-md-8 text-center">
+    		<a routerLink="/tools/cth"><img class="img-fluid rounded" src="assets/img/cth.jpg" alt="Crack The Hash"></a>
+    	</div>
+	</div>
+</div>
+<div class="col-12 text-center">
+	<button class="btn-lg" routerLink="/tools" color="warn" mat-raised-button>{{ 'homeComponent.featuredTool.discoverMore' | translate }}</button>
+</div>
+<div class="whitespace-1"></div>
+<hr class="separator">
+<div class="whitespace-1"></div>
+<div class="col-12 text-center mx-auto">
+	<h3 class="heading">{{ 'homeComponent.whoami.whoami' | translate }}</h3>
+	<div class="heading-underline"></div>
+</div>
+<div class="whitespace" style="height:25px;"></div>
+<div class="col-12 text-left mx-auto terminal">
+	<pre class="text-left">&#36; whoami<span>&nbsp;</span></pre>
+</div>
+<div class="col-12 text-center mx-auto">
+	<button class="btn-lg" routerLink="/about" style="margin-top: 15px;" color="warn" mat-raised-button>{{ 'homeComponent.whoami.execute' | translate }}</button>
+</div>
+<div class="whitespace-bottom"></div>

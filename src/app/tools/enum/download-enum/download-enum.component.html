@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <span mat-line>Download options:</span>
+
+    <a href="{{ localDownloadPath }}" download="{{ name | lowercase }}" mat-list-item>
+        <span mat-line><b>{{ name | lowercase }}</b></span>
+        <span mat-line>Download just the script from the website</span>
+    </a>
+
+    <a href="{{ githubRepositoryLink }}/archive/master.zip" download="enum.zip" mat-list-item>
+        <span mat-line><b>enum.zip</b></span>
+        <span mat-line>Download the whole zip file</span>
+    </a>
+
+    <a href="{{ githubRepositoryLink }}" target="_blank" mat-list-item>
+        <span mat-line><b>Github.com</b></span>
+        <span mat-line>Download via Github</span>
+    </a>
+</mat-nav-list>

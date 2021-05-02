@@ -1,0 +1,51 @@
+<div class="whitespace" style="height: 85px;"></div>
+<div class="col-12 text-center mx-auto">
+	<h3 class="heading">Blog</h3>
+	<div class="heading-underline"></div>
+</div>
+<div class="whitespace" style="height: 50px;"></div>
+<div class="container-fluid">
+	<div class="row mx-auto text-center">
+		<div class="col-12">
+			<div class="card latestBlog">
+				<div class="card-header text-left">{{ latestBlogDate }}</div>
+				<div class="card-body">
+					<h5 class="card-title">{{ latestBlogTitle }} <span class="badge badge-danger"> {{ latestBlogStatus }}</span></h5>
+			    	<p class="card-text">{{ latestBlogDescription }}</p>
+			    	<button routerLink="{{ latestBlogLink }}" mat-raised-button color="primary">Read more...</button>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="whitespace" style="height: 50px;"></div>
+<div class="separator mx-auto"></div>
+<div class="whitespace" style="height: 50px;"></div>
+<div class="container text-center mx-auto">
+	<div class="row">
+		<div class="col-md-6" *ngFor="let post of blogPosts | keyvalue">		
+			<div class="card mb-3 post">
+				<img class="card-img-top" src="{{ post.value.image }}">
+				<div class="card-body">
+			    	<h4 class="card-title"><span class="badge badge-warning topic-badge">{{ post.value.topic | uppercase }}</span> {{ post.value.title }}</h4>
+				   	<p class="card-text">{{ post.value.description }}</p>
+				   	<button routerLink="{{ post.value.link }}" color="primary" mat-raised-button>Read more!</button>
+				   	<p class="card-text text-left"><small class="text-muted">{{ post.value.publishDate | fromNow }}</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="whitespace" style="height: 85px;"></div>
+<div class="container text-center mx-auto more">
+	<h2>BE THE FIRST TO GET TO KNOW WHEN A NEW BLOG HAS BEEN PUBLISHED!</h2>
+	
+	<div class="whitespace" style="height: 25px;"></div>
+	
+	<h3>Start following me on Twitter:</h3>
+	
+	<div class="whitespace" style="height: 25px;"></div>
+	
+	<h2><a href="{{ twitter }}" target="_blank"><span>@0xblackbird</span> <fa-icon class="twitter-icon" [icon]="faTwitter" matTooltip="Tweet!"></fa-icon></a></h2>
+</div>
+<div class="whitespace"></div>

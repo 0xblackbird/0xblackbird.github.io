@@ -1,0 +1,45 @@
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" routerLink="/home" draggable="false"><img src="/assets/img/logo.png" draggable="false"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" routerLink="/home">{{ 'appComponent.navigationBar.home' | translate }}</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/tools">{{ 'appComponent.navigationBar.tools' | translate }}</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/blog">{{ 'appComponent.navigationBar.blog' | translate }}</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/about">{{ 'appComponent.navigationBar.about' | translate }}</a></li>
+                    <li class="nav-item" style="border-radius: 25px;">
+						<button class="nav-link" mat-icon-button [matMenuTriggerFor]="selectLanguageMenu" aria-label="">
+							<mat-icon style="font-size: 1.2rem;" [inline]="true">translate</mat-icon>
+						</button>
+						<mat-menu #selectLanguageMenu="matMenu">
+							<button mat-menu-item *ngFor="let language of translate.getLangs()" [value]="language" (click)="translate.use(language); displayMsg();">
+								<div *ngIf="language === 'en'; else other">
+									<span class="flag-icon flag-icon-gb"></span> {{ language | uppercase }}
+								</div>
+								<ng-template #other>
+									<span class="flag-icon flag-icon-{{ language }}"></span> {{ language | uppercase }}
+								</ng-template>
+							</button>
+						</mat-menu>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<router-outlet></router-outlet>
+<footer>
+    <div class="row text-center mx-auto">
+        <div class="col-12">
+            <code>{{ randomText }}</code><br><br>
+            <a href="{{ github }}" target="_blank"><fa-icon class="github-icon" [icon]="faGithub"></fa-icon></a>
+            <a href="{{ twitter }}" target="_blank"><fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon></a>
+            <a href="mailto:be1807v@pm.me"><fa-icon class="mail-icon" [icon]="faMail"></fa-icon></a><br><br>
+            <p>&copy; 0xblackbird | {{ currentYear }}</p>
+        </div>
+    </div>
+</footer>

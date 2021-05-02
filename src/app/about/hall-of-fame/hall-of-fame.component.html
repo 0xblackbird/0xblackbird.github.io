@@ -1,0 +1,24 @@
+<div style="height: 85px;"></div>
+<div class="col-12 mx-auto text-center">
+	<h3 class="heading">Hall of fame</h3>
+	<div class="heading-underline"></div>
+	<div class="seperator"></div>
+</div>
+<div height="70px"></div>
+<div class="col-12 mx-auto text-left" *ngIf="isMobile; else notASmallScreenDevice">
+	<ul class="list-group">
+		<li *ngFor="let url of hallOfFameUrls | keyvalue" class="list-group-item">
+			<span class="company">{{ url.value.company }}</span><span class="space"></span><span class="url"><a href="{{ url.value.url }}" target="_blank">{{ url.value.domain }}</a></span>
+		</li>
+	</ul>
+</div>
+<ng-template #notASmallScreenDevice>
+	<div class="col-8 mx-auto text-left">
+		<ul class="list-group">
+			<li *ngFor="let url of hallOfFameUrls | keyvalue" class="list-group-item">
+				<span class="company">{{ url.value.company }}</span><span class="space"></span><span class="url"><a href="{{ url.value.url }}" target="_blank">{{ url.value.url }}</a></span>
+			</li>
+		</ul>
+	</div>
+</ng-template>
+<div class="whitespace"></div>

@@ -1,0 +1,60 @@
+<div class="whitespace" style="height: 85px;"></div>
+<div class="col-12 mx-auto text-center">
+	<div class="col-8 mx-auto text-center">
+		<h3 class="title">{{ title }}</h3><br>
+	</div>
+	<div class="info">
+		<h4><a routerLink="/about">0xblackbird</a> - <span (click)="displayPublishDate()">{{ publishDate | fromNow }}</span></h4>
+	</div>
+	<img src="{{ image }}" class="img-fluid rounded img-b" draggable="false">
+</div>
+<div class="col-12 mx-auto text-left intro">
+	<p>Hello researchers! Welcome back to my new post I hope you enjoy this post and share your knowledge with others! And I also hope that you're doing well <span matTooltip="And tomorrow and the day after it, and next week, ...">today! So let me first explain what Drupal Nodes are and what they are used for! Let's start!</span></p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Drupal Nodes</h3>
+	<p>Most content on a Drupal website is stored and treated as "nodes". A node is any piece of individual content, such as a page, poll, article, forum topic, or a blog entry. Comments are not stored as nodes but are always connected to one. Treating all content as nodes allows the flexibility to create new types of content. It also allows you to painlessly apply new features or changes to all content of one type.<br><br>
+	Each Drupal Node has a unique id, you can access a node on a website that uses Drupal CMS easily by making a <kbd>GET</kbd> request to for example example.com/node/NID . <br>
+	Where 'NID' is a number from 0 to <span matTooltip="I don't know how much nodes a developer has created! Try to aim for higher numbers untill you reach a 404 status code!">&#8734;</span>.<br>
+	<small class="text-muted">Source: <a href="https://www.drupal.org/docs/7/nodes-content-types-and-fields/about-nodes" target="_blank">Drupal</a></small> 
+	</p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>This <a href="https://twitter.com/hashtag/BugBountyTip?src=hash&ref_src=twsrc%5Etfw" target="_blank">#BugBountyTip</a> helped me!</h3>
+	<a href="https://twitter.com/intigriti/status/1273951215152496642" target="_blank">
+		<img src="/assets/posts/post1/bugBountyTip.png" class="img-fluid rounded img-b" draggable="false">
+	</a>
+	<br>
+	<br>
+	<p>Merci beaucoup <a href="https://twitter.com/adrien_jeanneau" target="_blank">@adrien_jeanneau</a>!!</p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>The target</h3>
+	<p>This was a private program, this means that I cannot tell where I found this, whenever I have to mention the domain, I will just call it example.com!</p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Enumeration</h3>
+	<p>I am the kind of researcher that wants to get directly into hacking the web application instead of enumerating the whole web app completely. I just quickly gathered subdomains from a lot of sources and screenshotted them one by one, Aquatone generated a report and I went looking for some juice recognizable stuff (Citrix, Jenkins, Apache Struts, ...). And as (almost) always, all the fun ones are already taken out, no CVE's today. Shortly after that, I found 2 subdomains that were similar to each other and I just visited both of them (out curiosity) to look if they share 100% of the codebase. But that wasn't the case, luckily, one subdomain has Drupal CMS the other didn't have any CMS.</p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Reading sensitive data</h3>
+	<p>After I visited the domain that used Drupal, I just went straight and tried to check how many nodes there were, just like the #BugBountyTip of <a href="https://twitter.com/adrien_jeanneau" target="_blank">@adrien_jeanneau</a>. I built my way up and checked one by one manually until I encountered a strange page, checked the source code, and found a link to another node id. Visited it and 😮... I just got to see what another researcher has uploaded on the web app. The reason I knew that it was another researcher is that the file extension ended with .php.txt 😂! It was a pretty big node id (approx. /node/1.7M). Just as everybody would do, I decreased the id, checked the response and I faced a login page, decreased it once more, full name + personal email-address of a user. I reported it but I was still unsure, it all seemed pretty normal to me, but I reported it anyway. After a while digging... I got to see some pretty juice files which a user has uploaded, not only exposing full name and personal email-address but also his/her signature, address (Country, City, Streetname, ...), etc.. I took some screenshots and updated my initial report, this finding even increased my severity from <span class="badge badge-warning" style="margin-bottom: -3px">Medium</span> to <span class="badge badge-danger" style="margin-bottom: -3px">Critical</span>!</p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<div class="space-b"></div>
+	<p>This was it! I reported the vulnerability on <a href="https://www.intigriti.com/" target="_blank">Intigriti</a>, I actually was expecting a duplicate but this one passed through which was awesome! My first report that got accepted (on Intigriti). The company did a great job too, they fixed the issue pretty quickly! Thank you for reading this far! Make sure you follow <a href="https://twitter.com/adrien_jeanneau" target="_blank">@adrien_jeanneau</a> if you haven't yet!!<br>Hope you guys stay safe and see you in the next one!</p>
+	<div class="whitespace"></div>
+	<div class="text-center mx-auto share">
+		<h3 class="text-center">Share this post:</h3>
+		<div class="space-b"></div>
+		<h2>
+			<a href="https://twitter.com/intent/tweet?text=How%20I%20got%20read%20access%20to%20sensitive%20data%20of%20users%20via%20Drupal%20Nodes!%20by%20@0xblackbird%0A%0Ahttps://0xblackbird.github.io/cG9zdDEK" target="_blank">
+				<span>Twitter </span><fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon>
+			</a>
+		</h2>
+	</div>
+</div>
+<div class="whitespace"></div>

@@ -1,0 +1,41 @@
+<div class="whitespace" style="height: 85px;"></div>
+<div class="col-12 mx-auto text-center">
+	<h3 class="heading">About</h3>
+	<div class="heading-underline"></div>
+</div>
+<div class="container mx-auto text-center about">
+	<div class="row">
+		<div class="col-md-6">
+			<img src="/assets/img/profilePic.png" class="img-fluid img" draggable="false">
+		</div>
+		<div class="col-md-6">
+			<div class="whoami">
+				<h2 matTooltip="{{ 'aboutComponent.toolTip' | translate }}" matTooltipPosition="above">0xBLACKBIRD</h2>
+				<p class="text-left" innerHTML="{{ 'aboutComponent.bio' | translate }}"></p>
+			</div>
+			<div class="contact">
+				<h2>{{ 'aboutComponent.contact' | translate }}</h2>
+			    <a href="https://twitter.com/0xblackbird" target="_blank"><fa-icon class="twitter-icon" [icon]="faTwitter" matTooltip="Twitter"></fa-icon></a>
+				<a href="mailto:be1807v@pm.me"><fa-icon class="envelope-icon" [icon]="faEnvelope" matTooltip="Email"></fa-icon></a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="profile">
+				<h2>{{ 'aboutComponent.profiles' | translate }}</h2>
+				<a href="{{ github }}" target="_blank" matTooltip="Github"><fa-icon class="github-icon" [icon]="faGithub"></fa-icon></a>
+			    <a href="{{ intigritiProfile }}" target="_blank" matTooltip="Intigriti"><fa-icon class="bug-icon" [icon]="faBug"></fa-icon></a>
+			    <a href="{{ bugbountyhunter }}" target="_blank" matTooltip="Bugbountyhunter.com"><fa-icon class="profile-icon" [icon]="faUser"></fa-icon></a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="other">
+				<h2>{{ 'aboutComponent.pgpKey' | translate }}</h2>
+				<a href="/assets/publickey.be1807v@pm.me.asc" download="publickey.be1807v@pm.me.asc" target="_blank" matTooltip="Public PGP-Key"><fa-icon class="key-icon" [icon]="faKey"></fa-icon></a>				
+			</div>
+		</div>
+		<div class="col-md-12 mx-auto text-center">
+			<button routerLink="/about/hall-of-fame" color="primary" mat-raised-button>{{ 'aboutComponent.hallOfFame' | translate }}</button>
+		</div>
+	</div>
+</div>
+<div class="whitespace"></div>

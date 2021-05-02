@@ -1,0 +1,132 @@
+@import "./src/styles";
+
+* {
+    overflow: hidden;
+}
+
+.featured {
+    width: 65%;
+}
+
+.card {
+    border-radius: 4px;
+    box-shadow: 2.5px 5px 9px #888888;
+
+    .post {
+        min-height: 365px;
+    }
+
+    .card-header {
+        font-size: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .card-body {
+
+        span {
+            .topic-badge {
+                padding-top: 5px;
+            }
+        }
+
+        h4 {
+          font-size: 1.2rem;
+        }
+
+        p {
+          background-color: transparent;
+          font-size: 1rem;
+        }
+    }
+}
+
+.latestBlog {
+    margin-left: 13rem;
+    margin-right: 13rem;
+    border-radius: 4px;
+    box-shadow: 2.5px 5px 9px #888888;
+    transition: transform .3s ease;
+
+    .card-body {
+
+        h5 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            background-color: transparent;
+            font-size: 1rem;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.015);
+    }
+}
+
+.more {
+    padding: 45px;
+    border: 3px solid #f7f7f7;
+    border-radius: 3px;
+    font-family: Roboto, sans-serif;
+    width: 90%;
+  
+    h2 {
+        font-size: 1.4rem;
+        @include remove-selection();
+
+        a {
+            text-decoration: none;
+
+            span {
+                color: #000;
+                margin-right: 0.3rem;
+            }
+        }
+    }
+
+    fa-icon {
+        font-size: 2rem;
+    }
+}
+
+.whitespace {
+    height: 125px;
+}
+
+@media (max-width: 767px){
+    
+    .featured {
+        width: 100%!important;
+    }
+    
+    .latestBlog {
+        margin: 0rem;
+        width: 100%;
+    }
+
+    .card {
+
+        .card-header {
+            font-size: 0.8rem;
+        }
+
+        .card-title {
+            font-size: 0.8rem;
+        }
+    }
+
+    .more {
+        h2 {
+            font-size: 0.9rem;
+        }
+
+        h3 {
+            font-size: 0.8rem;
+        }
+    }
+}

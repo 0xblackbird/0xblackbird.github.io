@@ -1,0 +1,53 @@
+<div class="whitespace" style="height: 85px;"></div>
+
+<div class="row mx-auto text-center">
+	<div class="col-12">
+		<h1 class="tool-title">{{ name }} <span class="badge badge-success text-lowercase">v{{ version }}</span></h1>
+	</div>
+	<div class="col-12">
+		<img class="img-fluid rounded img-b" src="/assets/img/cth.jpg" draggable="false">
+	</div>
+</div>
+<div class="container1 mx-auto text-center">
+	<div class="col-12">
+		<h3 class="heading">Description</h3>
+		<div class="heading-underline"></div>
+	</div>
+	<div class="col-12">
+		<p>{{ description }}</p>
+	</div>
+	<div class="col-12 mx-auto disclaimer">
+		<div class="col-12 disclaimer-heading">
+			<h3 class="heading" matTooltip="PLEASE READ CAREFULLY!!">Disclaimer</h3>
+		</div>
+		<div class="col-6 mx-auto disclaimer-container rounded">
+			<p>{{ disclaimer }}</p>
+		</div>
+	</div>
+	<div class="col-12">
+		<h3 class="heading">Installation</h3>
+		<div class="heading-underline"></div>
+	</div>
+	<div class="col-12 container">
+		<p>You can either download the file or install via CLI</p>
+		<a (click)="openBottomSheet()" mat-raised-button>Download</a>
+		<div class="whitespace" style="height: 20px;"></div>
+		<div class="text-left mx-auto terminal">
+			<pre class="text-left"><span class="remove-s">&gt; </span>git clone {{ githubRepositoryLink }}.git</pre>
+			<pre class="text-left"><span class="remove-s">&gt; </span>cd cth/</pre>
+			<pre class="text-left"><span class="remove-s">&gt; </span>sudo pip3 install -r requirements.txt</pre>
+			<pre class="text-left"><span class="remove-s">&gt; </span>sudo chmod +x cth.py</pre>
+		</div>
+	</div>
+	<div class="col-12">
+		<h3 class="heading">Feedback</h3>
+		<div class="heading-underline"></div>
+	</div>
+	<div class="col-12">
+		<p>I really appreciate it if you take some time and provide me with some feedback! You can reach me via <a href="{{ twitter }}" target="_blank">Twitter</a> or via <a href="mailto:be1807v@pm.me">email</a>!<br>If you encounter any problems while utilizing the script or you just have an feature that you want to add, please create an issue or a pull request on Github! Thank you!</p>
+	</div>
+	<div class="col-12">
+		<a href="{{ githubRepositoryLink }}" target="_blank" class="button1" mat-raised-button>Github Repository</a>
+	</div>
+</div>
+<div class="whitespace"></div>

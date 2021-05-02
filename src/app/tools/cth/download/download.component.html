@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <span mat-line>Download options:</span>
+
+    <a href="{{ githubRepositoryLink }}/releases/download/v{{ version }}/cth.py" download="cth.py" mat-list-item>
+        <span mat-line><b>{{ name }}</b></span>
+        <span mat-line>Download just the script (latest release)</span>
+    </a>
+
+    <a href="{{ githubRepositoryLink }}/archive/master.zip" download="cth.zip" mat-list-item>
+        <span mat-line><b>cth.zip</b></span>
+        <span mat-line>Download the zip file</span>
+    </a>
+
+    <a href="{{ githubRepositoryLink }}" target="_blank" mat-list-item>
+        <span mat-line><b>Github.com</b></span>
+        <span mat-line>Download via Github</span>
+    </a>
+</mat-nav-list>

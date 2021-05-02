@@ -1,0 +1,192 @@
+@import "./src/styles";
+
+* {
+	overflow: hidden;
+}
+
+.about {
+	margin-top: 5rem;
+	padding: 45px;
+	border: 3px solid #f7f7f7;
+	border-radius: 3px;
+	font-family: Roboto, sans-serif;
+	width: 90%;
+
+	.img {
+		transition: border-radius 0.7s ease;
+
+		&:hover {
+			border-radius: 10px;
+		}
+	}
+
+	.whoami {
+
+		@include remove-selection;
+		margin-bottom: 2rem;
+
+		h2 {
+			font-size: 1.5rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+		}
+	}
+
+	.contact {
+		margin-bottom: 2rem;
+
+		h2 {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: inherit;
+
+			fa-icon {
+				font-size: 2rem;
+				margin: 1.2rem .5rem 0 0;
+			}
+		}
+
+		.envelope-icon:hover {
+			color: #ffa94d;
+		}
+
+		.twitter-icon:hover {
+			color: #1da1f2;
+		}
+
+	}
+
+	.profile {
+		margin-bottom: 2rem;
+
+		h2 {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: inherit;
+
+			fa-icon {
+				font-size: 2rem;
+				margin: 1.2rem .5rem 0 0;
+
+			}
+		}
+
+		.github-icon:hover {
+			color: #000;
+		}
+
+		.bug-icon:hover {
+			color: #3F51B5;
+		}
+
+		.profile-icon:hover {
+			color: #55A79A;
+		}
+
+	}
+
+	.other {
+
+		h2 {
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: inherit;
+
+			fa-icon {
+				font-size: 2rem;
+				margin: 1.2rem .5rem 0 0;
+
+			}
+		}
+
+		.key-icon:hover {
+			color: #FCAF3E;
+		}
+
+	}
+}
+
+.whitespace {
+	height: 200px;
+}
+
+@media(max-width: 767px) {
+
+	.about {
+		margin-top: 2rem;
+		padding: 30px;
+		width: 95%;
+
+		.whoami {
+
+			margin-bottom: 1rem;
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+		}
+
+		.contact {
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			a {
+				
+				fa-icon {
+					font-size: 1.5rem;
+					margin: 1.2rem .5rem 0 0;
+
+				}
+			}
+		}
+
+		.profile {
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			a {
+				
+				fa-icon {
+					font-size: 1.5rem;
+					margin: 1.2rem .5rem 0 0;
+
+				}
+			}
+		}
+
+		.other {
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			a {
+				
+				fa-icon {
+					font-size: 1.5rem;
+					margin: 1.2rem .5rem 0 0;
+				}
+			}
+		}
+	}
+	
+}

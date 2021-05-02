@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /assets/*
-
-Sitemap: https://0xblackbird.github.io/sitemap.xml

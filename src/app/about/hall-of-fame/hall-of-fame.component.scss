@@ -1,0 +1,29 @@
+@import '../../../styles.scss';
+
+div {
+	ul {
+		font-size: 15px;
+
+		li {
+			@include remove-selection();
+
+			.company {
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+.space {
+	padding: 0px 10px 0px;
+}
+
+.whitespace {
+	height: 250px;
+}
+
+@media(max-width: 767px) {
+	ul {
+		font-size: 10px;
+	}
+}

